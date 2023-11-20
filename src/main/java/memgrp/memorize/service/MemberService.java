@@ -5,6 +5,7 @@ import memgrp.memorize.dto.MemberResponse;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.repository.MemberRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -21,11 +22,11 @@ public class MemberService {
 
     public List<MemberResponse> getMembers() {
             List<Member> members = memberRepository.findAll();
-            return members.stream().map((member -> new MemberResponse(member, false, false))).toList();
+            return members.stream().map((member -> new MemberResponse(member, true, true))).toList();
 
     }
 
-    public MemberResponse addMember(MemberRequest request) {
+    public ResponseEntity<Boolean> addMember(MemberRequest request) {
 
         if (memberRepository.existsById(request.getUsername())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Member with this username already exist");
@@ -33,6 +34,6 @@ public class MemberService {
         Member member = Member.getMemberEntity(request);
         memberRepository.save(member);
 
-        return new MemberResponse(member, false, false);
+        return ResponseEntity.ok(true);
     }
 }

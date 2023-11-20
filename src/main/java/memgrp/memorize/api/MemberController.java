@@ -3,13 +3,14 @@ package memgrp.memorize.api;
 import memgrp.memorize.dto.MemberRequest;
 import memgrp.memorize.dto.MemberResponse;
 import memgrp.memorize.service.MemberService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("api/member")
+@RequestMapping("api/members")
 public class MemberController {
 
     MemberService memberService;
@@ -20,13 +21,14 @@ public class MemberController {
 
     @GetMapping
     public List<MemberResponse> getMembers() {
-        return memberService.getMembers();
+        List<MemberResponse> responses = memberService.getMembers();
+        return responses;
     }
 
     @PostMapping
-    MemberResponse addMember(@RequestBody MemberRequest request) {
+    ResponseEntity<Boolean> addMember(@RequestBody MemberRequest request) {
 
-        MemberResponse response = memberService.addMember(request);
+        ResponseEntity<Boolean> response = memberService.addMember(request);
 
         return response;
     }

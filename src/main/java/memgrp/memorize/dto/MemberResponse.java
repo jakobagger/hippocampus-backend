@@ -32,7 +32,17 @@ public class MemberResponse {
     private List<Role> roles;
 
     public MemberResponse(Member m, boolean includeAll, boolean includeAccountStatus) {
-
+            this.username = m.getUsername();
+            this.email = m.getEmail();
+            if (includeAccountStatus) {
+                this.enabled = m.isEnabled();
+                this.accountNonExpired = m.isAccountNonExpired();
+                this.accountNonLocked = m.isAccountNonLocked();
+            }
+            if (includeAll) {
+                this.created = m.getCreated();
+                this.roles = m.getRoles();
+            }
     }
 
 }
