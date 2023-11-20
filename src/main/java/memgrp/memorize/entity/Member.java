@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import memgrp.memorize.dto.MemberRequest;
 import memgrp.security.entity.UserWithRoles;
 
 @Getter
@@ -20,5 +21,12 @@ public class Member extends UserWithRoles {
     @Column(name = "last_name")
     String lastName;
 
+    public static Member getMemberEntity(MemberRequest request) {
+        Member member = new Member();
+        member.setUsername(request.getUsername());
+        member.setPassword(request.getPassword());
+        member.setEmail(request.getEmail());
+        return member;
+    }
 
 }
