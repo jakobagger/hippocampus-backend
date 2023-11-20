@@ -1,4 +1,4 @@
-# www.Memorize.com (backend)
+# Memorize (backend)
 
 ## Gruppekontrakt
 
