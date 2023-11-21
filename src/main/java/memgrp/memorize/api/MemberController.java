@@ -4,6 +4,7 @@ import memgrp.memorize.dto.MemberRequest;
 import memgrp.memorize.dto.MemberResponse;
 import memgrp.memorize.service.MemberService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @PreAuthorize("hasAuthority('USER')")
     @GetMapping
     public List<MemberResponse> getMembers() {
         List<MemberResponse> responses = memberService.getMembers();

@@ -4,6 +4,7 @@ import memgrp.memorize.dto.MemberRequest;
 import memgrp.memorize.dto.MemberResponse;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.repository.MemberRepository;
+import memgrp.security.entity.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class MemberService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Member with this username already exist");
         }
         Member member = Member.getMemberEntity(request);
+        member.addRole(Role.USER);
         memberRepository.save(member);
 
         return ResponseEntity.ok(true);
