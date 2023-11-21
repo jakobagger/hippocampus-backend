@@ -11,6 +11,7 @@ import memgrp.security.entity.UserWithRoles;
 @Setter
 @NoArgsConstructor
 @Entity
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "USER_TYPE")
 public class Member extends UserWithRoles {
@@ -27,6 +28,10 @@ public class Member extends UserWithRoles {
         member.setPassword(request.getPassword());
         member.setEmail(request.getEmail());
         return member;
+    }
+
+    public Member(String username, String password, String email) {
+        super(username,password,email);
     }
 
 }
