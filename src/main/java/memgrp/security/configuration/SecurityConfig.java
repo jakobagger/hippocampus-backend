@@ -38,7 +38,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class SecurityConfig {
 
     // TODO 1: Can add default token value. Remove before deploy
-    @Value("${TOKEN_SECRET}")
+    @Value("${app.secret-key}")
     private String tokenSecret;
 
     @Autowired
