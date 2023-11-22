@@ -1,4 +1,4 @@
-# www.Memorygym.dk (backend)
+# www.MemoryGym.dk (backend)
 
 ## Gruppekontrakt
 
