@@ -1,5 +1,7 @@
 package memgrp.memorize.configuration;
 
+import memgrp.memorize.entity.Matrix;
+import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.MemberRepository;
 import memgrp.security.entity.Role;
 import memgrp.security.entity.UserWithRoles;
@@ -9,14 +11,19 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class DeveloperData implements ApplicationRunner {
 
 
     MemberRepository memberRepository;
+    MatrixRepository matrixRepository;
 
-    public DeveloperData(MemberRepository memberRepository) {
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository) {
         this.memberRepository = memberRepository;
+        this.matrixRepository = matrixRepository;
     }
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -48,8 +55,10 @@ public class DeveloperData implements ApplicationRunner {
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
         userWithRolesRepository.save(user4);
-
-
     }
+
+    List<Matrix> matrixList = new ArrayList<>();
+    matrixList.add(????? NOTHING TO ADD!!!!!!!!!!!!!);
+
 
 }
