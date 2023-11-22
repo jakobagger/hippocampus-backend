@@ -1,4 +1,4 @@
-# www.Memorize.com (backend)
+# www.memorygym.dk (backend)
 
 ## Gruppekontrakt
 
