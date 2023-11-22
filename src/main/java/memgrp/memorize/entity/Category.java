@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -28,8 +29,19 @@ public class Category {
     @Column(name = "category_number")
     int CategoryNumber;
 
-//  @ManyToOne(orphanRemoval = true, MappedBy = Matrix)
-//  List<Matrix> Matrix;
+    @ManyToOne()
+    @JoinColumn(name = "XXXXXX")
+    Matrix matrix;
+
+//    @OneToMany(orphanRemoval = true, mappedBy = "category")
+//    List<Card> cards;
+//
+//    public void addCards(Card card){
+//        if(cards == null){
+//            cards = new ArrayList<>();
+//        }
+//        cards.add(card);
+//    }
 
 
 }
