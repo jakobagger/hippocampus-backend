@@ -16,10 +16,10 @@ import memgrp.security.entity.UserWithRoles;
 @DiscriminatorColumn(name = "USER_TYPE")
 public class Member extends UserWithRoles {
 
-    @Column(name = "first_name")
+    @Category(name = "first_name")
     String firstName;
 
-    @Column(name = "last_name")
+    @Category(name = "last_name")
     String lastName;
 
     public static Member getMemberEntity(MemberRequest request) {
