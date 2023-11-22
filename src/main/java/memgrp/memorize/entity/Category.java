@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,14 +19,17 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "suitId")
-    String suitId;
-    @Column(name = "suitDescription", length = 200)
-    String suitDescription;
+    @Column(name = "category_id")
+    int categoryId;
 
-//Lav en one to many relation til matrix
-//    @ManyToOne(orphanRemoval = true, mappedBy = Matrix)
-//    List<Matrix> matrix;
+    @Column(name = "category_description", length = 200)
+    String categoryDescription;
+
+    @Column(name = "category_number")
+    int CategoryNumber;
+
+//  @ManyToOne(orphanRemoval = true, MappedBy = Matrix)
+//  List<Matrix> Matrix;
 
 
 }
