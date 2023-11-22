@@ -1,6 +1,7 @@
 package memgrp.memorize.entity;
 
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,10 +17,10 @@ import memgrp.security.entity.UserWithRoles;
 @DiscriminatorColumn(name = "USER_TYPE")
 public class Member extends UserWithRoles {
 
-    @Category(name = "first_name")
+    @Column(name = "first_name")
     String firstName;
 
-    @Category(name = "last_name")
+    @Column(name = "last_name")
     String lastName;
 
     public static Member getMemberEntity(MemberRequest request) {
