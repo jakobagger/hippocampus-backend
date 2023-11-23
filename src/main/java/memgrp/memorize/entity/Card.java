@@ -21,15 +21,17 @@ public class Card {
     private String person;
     private String action;
     private String object;
+    private String imageBase64;
 
 
-    public Card(int cardId, String value, String suit, String person, String action, String object) {
+    public Card(int cardId, String value, String suit, String person, String action, String object, String imageBase64) {
         this.cardId = cardId;
         this.value = value;
         this.suit = suit;
         this.person = person;
         this.action = action;
         this.object = object;
+        this.imageBase64 = imageBase64;
     }
 
 
