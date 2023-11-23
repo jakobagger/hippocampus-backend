@@ -10,7 +10,7 @@ import memgrp.memorize.entity.Suit;
 @NoArgsConstructor
 public class SuitResponse {
 
-    String suitId;
+    int suitId;
     String suitDescription;
 
     public SuitResponse(Suit suit){

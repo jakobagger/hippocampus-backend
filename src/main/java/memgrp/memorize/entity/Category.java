@@ -30,7 +30,7 @@ public class Category {
     int CategoryNumber;
 
     @ManyToOne()
-    @JoinColumn(name = "XXXXXX")
+    @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
 //    @OneToMany(orphanRemoval = true, mappedBy = "category")

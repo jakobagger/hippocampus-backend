@@ -17,13 +17,16 @@ public class Suit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "suit_id")
-    String suitId;
+    int suitId;
     @Column(name = "suit_description", length = 200)
     String suitDescription;
 
+    @Column(name = "suit_name")
+    String suitName;
+
 
     @ManyToOne()
-    @JoinColumn(name = "XXXXXX", nullable = false)
+    @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
 //    @OneToMany(orphanRemoval = true, mappedBy = "suit")
