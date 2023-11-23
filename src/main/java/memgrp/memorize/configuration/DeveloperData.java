@@ -1,6 +1,9 @@
 package memgrp.memorize.configuration;
 
+import memgrp.memorize.entity.Member;
+import memgrp.memorize.entity.Quiz;
 import memgrp.memorize.repository.MemberRepository;
+import memgrp.memorize.repository.QuizRepository;
 import memgrp.security.entity.Role;
 import memgrp.security.entity.UserWithRoles;
 import memgrp.security.repository.UserWithRolesRepository;
@@ -15,13 +18,25 @@ public class DeveloperData implements ApplicationRunner {
 
     MemberRepository memberRepository;
 
-    public DeveloperData(MemberRepository memberRepository) {
+    QuizRepository quizRepository;
+
+
+    public DeveloperData(MemberRepository memberRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
+        this.quizRepository = quizRepository;
     }
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         setupUserWithRoles();
+        Member member = new Member("username", "email", "password");
+        Quiz quiz = new Quiz();
+        Quiz quiz2 = new Quiz();
+        memberRepository.save(member);
+        quiz2.setMember(member);
+        quizRepository.save(quiz);
+        quizRepository.save(quiz2);
+
     }
 
     @Autowired
