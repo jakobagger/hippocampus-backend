@@ -45,4 +45,9 @@ public class MemberResponse {
             }
     }
 
+    public MemberResponse(Member m) {
+        this.username = m.getUsername();
+        this.email = m.getEmail();
+    }
+
 }
