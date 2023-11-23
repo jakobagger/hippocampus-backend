@@ -1,4 +1,4 @@
-# Memorize (backend)
+# www.MemoryGym.dk (backend)
 
 ## Gruppekontrakt
 
@@ -49,5 +49,3 @@ We use the <b>'main'</b> branch as our released codebase. For new developments, 
 ### Contact
 - **Primary Communication Channel**: Discord
 - **Secondary Communication Channel**: Smoke signals / Telepathy
-
-
