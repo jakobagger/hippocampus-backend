@@ -23,8 +23,7 @@ public class Card {
     private String Base64;
 
 
-    public Card(int cardId, String value, String suit, String person, String action, String object, String Base64) {
-        this.cardId = cardId;
+    public Card(String value, String suit, String person, String action, String object, String Base64) {
         this.value = value;
         this.suit = suit;
         this.person = person;
