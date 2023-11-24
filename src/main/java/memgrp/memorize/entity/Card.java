@@ -1,9 +1,6 @@
 package memgrp.memorize.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,10 +18,12 @@ public class Card {
     private String person;
     private String action;
     private String object;
+    @Lob
+    @Column(name = "image", length = 1234567)
     private String Base64;
 
 
-    public Card(String value, String suit, String person, String action, String object, String Base64) {
+    public Card(int cardId, String value, String suit, String person, String action, String object, String Base64) {
         this.cardId = cardId;
         this.value = value;
         this.suit = suit;
