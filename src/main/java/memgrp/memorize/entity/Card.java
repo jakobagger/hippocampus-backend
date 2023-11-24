@@ -1,6 +1,7 @@
 package memgrp.memorize.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,8 +24,7 @@ public class Card {
     private String Base64;
 
 
-    public Card(int cardId, String value, String suit, String person, String action, String object, String Base64) {
-        this.cardId = cardId;
+    public Card(String value, String suit, String person, String action, String object, String Base64) {
         this.value = value;
         this.suit = suit;
         this.person = person;
@@ -32,13 +32,5 @@ public class Card {
         this.object = object;
         this.Base64 = Base64;
     }
-
-
-
-
-
-
-
-
 
 }
