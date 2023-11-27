@@ -43,6 +43,8 @@ public class DeveloperData implements ApplicationRunner {
         Member member = new Member("username","email","password");
         memberRepository.save(member);
         Matrix matrix1 = new Matrix(member);
+        matrixRepository.save(matrix1);
+
         Category c1 = new Category();
         Category c2 = new Category();
         Category c3 = new Category();
@@ -52,7 +54,9 @@ public class DeveloperData implements ApplicationRunner {
         cats.add(c2);
         cats.add(c3);
         cats.add(c4);
-        categoryRepository.saveAll(cats);
+        c1.setCategoryNumber(1);
+        c1.setCategoryDescription("Strong");
+
         matrix1.addCategories(c1);
         matrix1.addCategories(c2);
         matrix1.addCategories(c3);
@@ -62,17 +66,29 @@ public class DeveloperData implements ApplicationRunner {
         Suit s2 = new Suit();
         Suit s3 = new Suit();
         Suit s4 = new Suit();
+        List<Suit> suits = new ArrayList<>();
+        suits.add(s1);
+        suits.add(s2);
+        suits.add(s3);
+        suits.add(s4);
+        s1.setSuitName("Heart");
+        s1.setSuitDescription("Caring");
 
-        suitRepository.save(s1);
-        suitRepository.save(s2);
-        suitRepository.save(s3);
-        suitRepository.save(s4);
         matrix1.addSuits(s1);
         matrix1.addSuits(s2);
         matrix1.addSuits(s3);
         matrix1.addSuits(s4);
         matrixRepository.save(matrix1);
 
+        for(Category cat : cats){
+            cat.setMatrix(matrix1);
+        }
+        categoryRepository.saveAll(cats);
+
+        for(Suit suit : suits){
+            suit.setMatrix(matrix1);
+        }
+        suitRepository.saveAll(suits);
 
     }
 
@@ -102,8 +118,6 @@ public class DeveloperData implements ApplicationRunner {
         userWithRolesRepository.save(user4);
     }
 
-//    List<Matrix> matrixList = new ArrayList<>();
-//    matrixList.add(????? NOTHING TO ADD!!!!!!!!!!!!!);
 
 
 }
