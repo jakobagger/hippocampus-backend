@@ -26,14 +26,14 @@ public class Suit {
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
-//    @OneToMany(orphanRemoval = true, mappedBy = "suit")
-//    List<Card> cards;
-//
-//    public void addCard(Card card){
-//        if(cards == null){
-//            cards = new ArrayList<>();
-//        }
-//        cards.add(card);
-//    }
+ @OneToMany(orphanRemoval = true, mappedBy = "suit")
+   List<Card> cards;
+
+   public void addCard(Card card){
+    if(cards == null){
+      cards = new ArrayList<>();
+       }
+    cards.add(card);
+   }
 }
 

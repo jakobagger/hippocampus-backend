@@ -19,7 +19,7 @@ public class Card {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name ="Suit_id")
+    @JoinColumn(name ="suit_id")
     private Suit suit;
     private String person;
     private String action;
