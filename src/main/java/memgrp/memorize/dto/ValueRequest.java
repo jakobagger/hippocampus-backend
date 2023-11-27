@@ -9,11 +9,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ValueRequest {
 
-    String categoryDescription;
-    int categoryNumber;
+    String valueDescription;
+    int valueNumber;
 
-    public ValueRequest(String categoryDescription, int categoryNumber){
-        this.categoryDescription = categoryDescription;
-        this.categoryNumber = categoryNumber;
+    public ValueRequest(String valueDescription, int valueNumber){
+        this.valueDescription = valueDescription;
+        this.valueNumber = valueNumber;
     }
 }
