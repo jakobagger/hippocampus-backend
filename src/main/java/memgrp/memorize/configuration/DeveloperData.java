@@ -1,6 +1,10 @@
 package memgrp.memorize.configuration;
 
+
 import memgrp.memorize.entity.Value;
+
+import memgrp.memorize.entity.Quiz;
+import memgrp.memorize.repository.QuizRepository;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Suit;
@@ -30,18 +34,30 @@ public class DeveloperData implements ApplicationRunner {
 
     SuitRepository suitRepository;
 
-    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository) {
+    QuizRepository quizRepository;
+
+
+
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
         this.matrixRepository = matrixRepository;
         this.valueRepository = valueRepository;
         this.suitRepository = suitRepository;
+        this.quizRepository = quizRepository;
+
     }
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         setupUserWithRoles();
-        Member member = new Member("username","email","password");
+      
+        Member member = new Member("username", "email", "password");
+        Quiz quiz = new Quiz();
+        Quiz quiz2 = new Quiz();
         memberRepository.save(member);
+        quiz2.setMember(member);
+        quizRepository.save(quiz);
+        quizRepository.save(quiz2);
         Matrix matrix1 = new Matrix(member);
         matrixRepository.save(matrix1);
 
