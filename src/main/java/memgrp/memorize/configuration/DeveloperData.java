@@ -103,10 +103,10 @@ public class DeveloperData implements ApplicationRunner {
         System.out.println("**** ** ON YOUR REMOTE DATABASE                 ******************************");
         System.out.println("******************************************************************************");
 
-        UserWithRoles user1 = new UserWithRoles("user1", "user1@a.com", "passwordUsedByAll");
-        UserWithRoles user2 = new UserWithRoles("user2", "user2@a.com", "passwordUsedByAll");
-        UserWithRoles user3 = new UserWithRoles("user3", "user3@a.com", "passwordUsedByAll");
-        UserWithRoles user4 = new UserWithRoles("user4", "user4@a.com", "passwordUsedByAll");
+        UserWithRoles user1 = new UserWithRoles("user1", "user1@a.com", passwordUsedByAll);
+        UserWithRoles user2 = new UserWithRoles("user2", "user2@a.com", passwordUsedByAll);
+        UserWithRoles user3 = new UserWithRoles("user3", "user3@a.com", passwordUsedByAll);
+        UserWithRoles user4 = new UserWithRoles("user4", "user4@a.com", passwordUsedByAll);
         user1.addRole(Role.USER);
         user1.addRole(Role.ADMIN);
         user2.addRole(Role.USER);

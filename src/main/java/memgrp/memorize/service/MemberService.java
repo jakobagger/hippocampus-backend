@@ -27,8 +27,10 @@ public class MemberService {
 
     }
 
-    public ResponseEntity<Boolean> addMember(MemberRequest request) {
-
+    public MemberResponse addMember(MemberRequest request) {
+        if(request.getUsername().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username can't be empty");
+        }
         if (memberRepository.existsById(request.getUsername())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Member with this username already exist");
         }
@@ -36,6 +38,6 @@ public class MemberService {
         member.addRole(Role.USER);
         memberRepository.save(member);
 
-        return ResponseEntity.ok(true);
+        return new MemberResponse(member);
     }
 }

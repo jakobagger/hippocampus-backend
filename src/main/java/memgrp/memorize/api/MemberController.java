@@ -20,19 +20,18 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @PreAuthorize("hasAuthority('USER')")
+//    @PreAuthorize("hasAuthority('USER')")
     @GetMapping
     public List<MemberResponse> getMembers() {
         List<MemberResponse> responses = memberService.getMembers();
         return responses;
     }
 
+
     @PostMapping
-    ResponseEntity<Boolean> addMember(@RequestBody MemberRequest request) {
+    MemberResponse addMember(@RequestBody MemberRequest request) {
 
-        ResponseEntity<Boolean> response = memberService.addMember(request);
-
-        return response;
+         return memberService.addMember(request);
     }
 
 }
