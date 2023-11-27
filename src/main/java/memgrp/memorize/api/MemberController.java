@@ -3,8 +3,6 @@ package memgrp.memorize.api;
 import memgrp.memorize.dto.MemberRequest;
 import memgrp.memorize.dto.MemberResponse;
 import memgrp.memorize.service.MemberService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

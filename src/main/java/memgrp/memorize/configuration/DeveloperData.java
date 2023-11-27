@@ -1,6 +1,17 @@
 package memgrp.memorize.configuration;
 
+
+import memgrp.memorize.entity.Value;
+
+import memgrp.memorize.entity.Quiz;
+import memgrp.memorize.repository.QuizRepository;
+import memgrp.memorize.entity.Matrix;
+import memgrp.memorize.entity.Member;
+import memgrp.memorize.entity.Suit;
+import memgrp.memorize.repository.ValueRepository;
+import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.MemberRepository;
+import memgrp.memorize.repository.SuitRepository;
 import memgrp.security.entity.Role;
 import memgrp.security.entity.UserWithRoles;
 import memgrp.security.repository.UserWithRolesRepository;
@@ -9,19 +20,92 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class DeveloperData implements ApplicationRunner {
 
 
     MemberRepository memberRepository;
+    MatrixRepository matrixRepository;
 
-    public DeveloperData(MemberRepository memberRepository) {
+    ValueRepository valueRepository;
+
+    SuitRepository suitRepository;
+
+    QuizRepository quizRepository;
+
+
+
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
+        this.matrixRepository = matrixRepository;
+        this.valueRepository = valueRepository;
+        this.suitRepository = suitRepository;
+        this.quizRepository = quizRepository;
+
     }
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         setupUserWithRoles();
+      
+        Member member = new Member("username", "email", "password");
+        Quiz quiz = new Quiz();
+        Quiz quiz2 = new Quiz();
+        memberRepository.save(member);
+        quiz2.setMember(member);
+        quizRepository.save(quiz);
+        quizRepository.save(quiz2);
+        Matrix matrix1 = new Matrix(member);
+        matrixRepository.save(matrix1);
+
+        Value c1 = new Value();
+        Value c2 = new Value();
+        Value c3 = new Value();
+        Value c4 = new Value();
+        List<Value> values = new ArrayList<>();
+        values.add(c1);
+        values.add(c2);
+        values.add(c3);
+        values.add(c4);
+        c1.setValueNumber(1);
+        c1.setValueDescription("Strong");
+
+        matrix1.addValue(c1);
+        matrix1.addValue(c2);
+        matrix1.addValue(c3);
+        matrix1.addValue(c4);
+
+        Suit s1 = new Suit();
+        Suit s2 = new Suit();
+        Suit s3 = new Suit();
+        Suit s4 = new Suit();
+        List<Suit> suits = new ArrayList<>();
+        suits.add(s1);
+        suits.add(s2);
+        suits.add(s3);
+        suits.add(s4);
+        s1.setSuitName("Heart");
+        s1.setSuitDescription("Caring");
+
+        matrix1.addSuits(s1);
+        matrix1.addSuits(s2);
+        matrix1.addSuits(s3);
+        matrix1.addSuits(s4);
+        matrixRepository.save(matrix1);
+
+        for(Value value : values){
+            value.setMatrix(matrix1);
+        }
+        valueRepository.saveAll(values);
+
+        for(Suit suit : suits){
+            suit.setMatrix(matrix1);
+        }
+        suitRepository.saveAll(suits);
+
     }
 
     @Autowired
@@ -35,10 +119,10 @@ public class DeveloperData implements ApplicationRunner {
         System.out.println("**** ** ON YOUR REMOTE DATABASE                 ******************************");
         System.out.println("******************************************************************************");
 
-        UserWithRoles user1 = new UserWithRoles("user1", "user1@a.com", "passwordUsedByAll");
-        UserWithRoles user2 = new UserWithRoles("user2", "user2@a.com", "passwordUsedByAll");
-        UserWithRoles user3 = new UserWithRoles("user3", "user3@a.com", "passwordUsedByAll");
-        UserWithRoles user4 = new UserWithRoles("user4", "user4@a.com", "passwordUsedByAll");
+        UserWithRoles user1 = new UserWithRoles("user1", "user1@a.com", passwordUsedByAll);
+        UserWithRoles user2 = new UserWithRoles("user2", "user2@a.com", passwordUsedByAll);
+        UserWithRoles user3 = new UserWithRoles("user3", "user3@a.com", passwordUsedByAll);
+        UserWithRoles user4 = new UserWithRoles("user4", "user4@a.com", passwordUsedByAll);
         user1.addRole(Role.USER);
         user1.addRole(Role.ADMIN);
         user2.addRole(Role.USER);
@@ -48,8 +132,8 @@ public class DeveloperData implements ApplicationRunner {
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
         userWithRolesRepository.save(user4);
-
-
     }
+
+
 
 }

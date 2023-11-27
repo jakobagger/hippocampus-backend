@@ -1,11 +1,15 @@
 package memgrp.memorize.entity;
 
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import memgrp.memorize.dto.MemberRequest;
 import memgrp.security.entity.UserWithRoles;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,6 +25,16 @@ public class Member extends UserWithRoles {
 
     @Column(name = "last_name")
     String lastName;
+
+    @OneToMany(mappedBy = "member")
+    List<Quiz> quizList;
+
+    public void addQuiz(Quiz quiz) {
+        if(quizList == null) {
+            quizList = new ArrayList<>();
+        }
+        quizList.add(quiz);
+    }
 
     public static Member getMemberEntity(MemberRequest request) {
         Member member = new Member();
