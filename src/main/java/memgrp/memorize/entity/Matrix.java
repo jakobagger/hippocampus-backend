@@ -25,13 +25,13 @@ public class Matrix {
     Member member;
 
     @OneToMany(orphanRemoval = true, mappedBy = "matrix")
-    List<Category> categories;
+    List<Value> values;
 
-    public void addCategories(Category category){
-        if(categories == null){
-            categories = new ArrayList<>();
+    public void addValue(Value value){
+        if(values == null){
+            values = new ArrayList<>();
         }
-        categories.add(category);
+        values.add(value);
     }
 
     @OneToMany(orphanRemoval = true, mappedBy = "matrix")
