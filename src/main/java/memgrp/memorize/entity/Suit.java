@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,14 +29,14 @@ public class Suit {
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
-//    @OneToMany(orphanRemoval = true, mappedBy = "suit")
-//    List<Card> cards;
-//
-//    public void addCard(Card card){
-//        if(cards == null){
-//            cards = new ArrayList<>();
-//        }
-//        cards.add(card);
-//    }
+ @OneToMany(orphanRemoval = true, mappedBy = "suit")
+ List<Card> cards;
+
+   public void addCard(Card card){
+    if(cards == null){
+      cards = new ArrayList<>();
+       }
+    cards.add(card);
+   }
 }
 

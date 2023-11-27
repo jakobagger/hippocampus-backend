@@ -13,8 +13,14 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cardId;
-    private String value;
-    private String suit;
+
+    @ManyToOne
+    @JoinColumn(name = "value_id")
+    private Value value;
+
+    @ManyToOne
+    @JoinColumn(name ="suit_id")
+    private Suit suit;
     private String person;
     private String action;
     private String object;
@@ -23,7 +29,7 @@ public class Card {
     private String Base64;
 
 
-    public Card(String value, String suit, String person, String action, String object, String Base64) {
+    public Card(Value value, Suit suit, String person, String action, String object, String Base64) {
         this.value = value;
         this.suit = suit;
         this.person = person;

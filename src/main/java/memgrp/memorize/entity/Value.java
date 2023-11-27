@@ -8,6 +8,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,15 +34,14 @@ public class Value {
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
-//    @OneToMany(orphanRemoval = true, mappedBy = "value")
-//    List<Card> cards;
-//
-//    public void addCards(Card card){
-//        if(cards == null){
-//            cards = new ArrayList<>();
-//        }
-//        cards.add(card);
-//    }
+    @OneToMany(orphanRemoval = true, mappedBy = "value")
+    List<Card> cards;
 
-
+    public void addCard(Card card) {
+        if (cards == null) {
+            cards = new ArrayList<>();
+        }
+        cards.add(card);
+    }
 }
+

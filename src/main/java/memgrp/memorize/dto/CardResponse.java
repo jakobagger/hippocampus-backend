@@ -19,13 +19,13 @@ public class CardResponse {
     String object;
     String image;
 
-    public CardResponse(Card card) {
-        this.value = card.getValue();
-        this.suit = card.getSuit();
-        this.person = card.getPerson();
-        this.action= card.getAction();
-        this.object = card.getObject();
-        this.image = card.getBase64();
+   // public CardResponse(Card card) {
+    //    this.value = card.getValue();
+       // this.suit = card.getSuit();
+      //  this.person = card.getPerson();
+       // this.action= card.getAction();
+      //  this.object = card.getObject();
+        //this.image = card.getBase64();
     }
 
-}
+
