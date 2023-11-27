@@ -6,7 +6,6 @@ import memgrp.memorize.entity.Member;
 import memgrp.memorize.repository.MemberRepository;
 import memgrp.security.entity.Role;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
