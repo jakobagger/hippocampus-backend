@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,7 +30,7 @@ public class Suit {
     Matrix matrix;
 
  @OneToMany(orphanRemoval = true, mappedBy = "suit")
-   List<Card> cards;
+ List<Card> cards;
 
    public void addCard(Card card){
     if(cards == null){

@@ -15,8 +15,8 @@ public class Card {
     private int cardId;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @JoinColumn(name = "value_id")
+    private Value value;
 
     @ManyToOne
     @JoinColumn(name ="suit_id")
@@ -29,8 +29,8 @@ public class Card {
     private String Base64;
 
 
-    public Card(Category category, Suit suit, String person, String action, String object, String Base64) {
-        this.category = category;
+    public Card(Value value, Suit suit, String person, String action, String object, String Base64) {
+        this.value = value;
         this.suit = suit;
         this.person = person;
         this.action = action;
