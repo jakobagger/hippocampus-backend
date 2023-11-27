@@ -5,7 +5,9 @@ import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Suit;
 import memgrp.memorize.repository.SuitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SuitService {
 
     @Autowired

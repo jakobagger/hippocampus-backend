@@ -5,7 +5,9 @@ import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Value;
 import memgrp.memorize.repository.ValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ValueService {
 
     @Autowired

@@ -5,6 +5,7 @@ import memgrp.memorize.dto.MatrixResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.repository.MatrixRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ import java.util.List;
 @Service
 public class MatrixService {
 
-    MatrixRepository matrixRepository;
+    @Autowired
+    private MatrixRepository matrixRepository;
 
     public MatrixService(MatrixRepository matrixRepository){
         this.matrixRepository = matrixRepository;
