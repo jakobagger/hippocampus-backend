@@ -8,32 +8,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 
 @Entity
-public class Category {
+public class Value {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
-    int categoryId;
+    @Column(name = "value_id")
+    int valueId;
 
-    @Column(name = "category_description", length = 200)
-    String categoryDescription;
+    @Column(name = "value_description", length = 200)
+    String valueDescription;
 
-    @Column(name = "category_number")
-    int CategoryNumber;
+    @Column(name = "value_number")
+    int valueNumber;
 
     @ManyToOne()
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
-//    @OneToMany(orphanRemoval = true, mappedBy = "category")
+//    @OneToMany(orphanRemoval = true, mappedBy = "value")
 //    List<Card> cards;
 //
 //    public void addCards(Card card){

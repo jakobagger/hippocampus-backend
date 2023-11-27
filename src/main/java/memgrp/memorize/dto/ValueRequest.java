@@ -7,12 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CategoryRequest {
+public class ValueRequest {
 
     String categoryDescription;
     int categoryNumber;
 
-    public CategoryRequest(String categoryDescription, int categoryNumber){
+    public ValueRequest(String categoryDescription, int categoryNumber){
         this.categoryDescription = categoryDescription;
         this.categoryNumber = categoryNumber;
     }

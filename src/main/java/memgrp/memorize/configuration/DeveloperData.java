@@ -1,10 +1,10 @@
 package memgrp.memorize.configuration;
 
-import memgrp.memorize.entity.Category;
+import memgrp.memorize.entity.Value;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Suit;
-import memgrp.memorize.repository.CategoryRepository;
+import memgrp.memorize.repository.ValueRepository;
 import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
@@ -26,14 +26,14 @@ public class DeveloperData implements ApplicationRunner {
     MemberRepository memberRepository;
     MatrixRepository matrixRepository;
 
-    CategoryRepository categoryRepository;
+    ValueRepository valueRepository;
 
     SuitRepository suitRepository;
 
-    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, CategoryRepository categoryRepository, SuitRepository suitRepository) {
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository) {
         this.memberRepository = memberRepository;
         this.matrixRepository = matrixRepository;
-        this.categoryRepository = categoryRepository;
+        this.valueRepository = valueRepository;
         this.suitRepository = suitRepository;
     }
     @Override
@@ -45,22 +45,22 @@ public class DeveloperData implements ApplicationRunner {
         Matrix matrix1 = new Matrix(member);
         matrixRepository.save(matrix1);
 
-        Category c1 = new Category();
-        Category c2 = new Category();
-        Category c3 = new Category();
-        Category c4 = new Category();
-        List<Category> cats = new ArrayList<>();
-        cats.add(c1);
-        cats.add(c2);
-        cats.add(c3);
-        cats.add(c4);
-        c1.setCategoryNumber(1);
-        c1.setCategoryDescription("Strong");
+        Value c1 = new Value();
+        Value c2 = new Value();
+        Value c3 = new Value();
+        Value c4 = new Value();
+        List<Value> values = new ArrayList<>();
+        values.add(c1);
+        values.add(c2);
+        values.add(c3);
+        values.add(c4);
+        c1.setValueNumber(1);
+        c1.setValueDescription("Strong");
 
-        matrix1.addCategories(c1);
-        matrix1.addCategories(c2);
-        matrix1.addCategories(c3);
-        matrix1.addCategories(c4);
+        matrix1.addValue(c1);
+        matrix1.addValue(c2);
+        matrix1.addValue(c3);
+        matrix1.addValue(c4);
 
         Suit s1 = new Suit();
         Suit s2 = new Suit();
@@ -80,10 +80,10 @@ public class DeveloperData implements ApplicationRunner {
         matrix1.addSuits(s4);
         matrixRepository.save(matrix1);
 
-        for(Category cat : cats){
-            cat.setMatrix(matrix1);
+        for(Value value : values){
+            value.setMatrix(matrix1);
         }
-        categoryRepository.saveAll(cats);
+        valueRepository.saveAll(values);
 
         for(Suit suit : suits){
             suit.setMatrix(matrix1);
