@@ -32,7 +32,11 @@ public class Suit {
  @OneToMany(orphanRemoval = true, mappedBy = "suit")
  List<Card> cards;
 
-   public void addCard(Card card){
+    public Suit(String suitName){
+        this.suitName = suitName;
+    }
+
+    public void addCard(Card card){
     if(cards == null){
       cards = new ArrayList<>();
        }
