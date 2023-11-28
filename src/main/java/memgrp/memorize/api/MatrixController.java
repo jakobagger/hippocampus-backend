@@ -1,6 +1,8 @@
 package memgrp.memorize.api;
 
 import memgrp.memorize.dto.MatrixResponse;
+import memgrp.memorize.dto.SuitResponse;
+import memgrp.memorize.dto.ValueResponse;
 import memgrp.memorize.service.MatrixService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +24,15 @@ public class MatrixController {
     @GetMapping()
     public List<MatrixResponse> getMatrix(){
         return matrixService.getMatrix();
+    }
+
+    @GetMapping("/value")
+    public List<ValueResponse> getValues(){
+        return matrixService.getValue();
+    }
+
+    @GetMapping("/suit")
+    public List<SuitResponse> getSuits(){
+        return matrixService.getSuit();
     }
 }
