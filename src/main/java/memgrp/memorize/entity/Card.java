@@ -15,6 +15,10 @@ public class Card {
     private int cardId;
 
     @ManyToOne
+    @JoinColumn(name="matrix_id")
+    private Matrix matrix;
+
+    @ManyToOne
     @JoinColumn(name = "value_id")
     private Value value;
 
