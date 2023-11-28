@@ -48,7 +48,7 @@ public class Matrix {
         this.member = member;
     }
 
-    @OneToMany(orphanRemoval = true, mappedBy = "matrix")
+    @OneToMany(mappedBy = "matrix")
     List<Card> cards;
 
     public void addCard(Card card) {

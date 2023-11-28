@@ -1,17 +1,9 @@
 package memgrp.memorize.configuration;
 
 
-import memgrp.memorize.entity.Value;
+import memgrp.memorize.entity.*;
 
-import memgrp.memorize.entity.Quiz;
-import memgrp.memorize.repository.QuizRepository;
-import memgrp.memorize.entity.Matrix;
-import memgrp.memorize.entity.Member;
-import memgrp.memorize.entity.Suit;
-import memgrp.memorize.repository.ValueRepository;
-import memgrp.memorize.repository.MatrixRepository;
-import memgrp.memorize.repository.MemberRepository;
-import memgrp.memorize.repository.SuitRepository;
+import memgrp.memorize.repository.*;
 import memgrp.security.entity.Role;
 import memgrp.security.entity.UserWithRoles;
 import memgrp.security.repository.UserWithRolesRepository;
@@ -36,14 +28,17 @@ public class DeveloperData implements ApplicationRunner {
 
     QuizRepository quizRepository;
 
+    CardRepository cardRepository;
 
 
-    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
+
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, CardRepository cardRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
         this.matrixRepository = matrixRepository;
         this.valueRepository = valueRepository;
         this.suitRepository = suitRepository;
         this.quizRepository = quizRepository;
+        this.cardRepository = cardRepository;
 
     }
     @Override
@@ -52,6 +47,9 @@ public class DeveloperData implements ApplicationRunner {
         setupUserWithRoles();
       
         Member member = new Member("username", "email", "password");
+
+        Matrix matrix3 = new Matrix();
+
         Quiz quiz = new Quiz();
         Quiz quiz2 = new Quiz();
         memberRepository.save(member);
@@ -70,7 +68,7 @@ public class DeveloperData implements ApplicationRunner {
         values.add(c2);
         values.add(c3);
         values.add(c4);
-        c1.setValueNumber(1);
+        c1.setValueName("1");
         c1.setValueDescription("Strong");
 
         matrix1.addValue(c1);
@@ -106,6 +104,7 @@ public class DeveloperData implements ApplicationRunner {
         }
         suitRepository.saveAll(suits);
 
+//
     }
 
     @Autowired

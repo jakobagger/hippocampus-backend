@@ -28,10 +28,16 @@ public class Card {
     @Column(name = "image", length = 1234567)
     private String Base64;
 
+    @ManyToOne
+    @JoinColumn(name = "matrix_id")
+    private Matrix matrix;
+
 
     public Card(Value value, Suit suit, String person, String action, String object, String Base64) {
         this.value = value;
+        value.addCard(this);
         this.suit = suit;
+        suit.addCard(this);
         this.person = person;
         this.action = action;
         this.object = object;

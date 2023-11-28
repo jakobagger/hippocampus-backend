@@ -25,12 +25,16 @@ public class Suit {
     String suitName;
 
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
- @OneToMany(orphanRemoval = true, mappedBy = "suit")
- List<Card> cards;
+    @OneToMany(orphanRemoval = true, mappedBy = "suit")
+    List<Card> cards;
+
+    public Suit(String suitName) {
+        this.suitName = suitName;
+    }
 
    public void addCard(Card card){
     if(cards == null){

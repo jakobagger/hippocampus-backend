@@ -27,16 +27,19 @@ public class Value {
     @Column(name = "value_description", length = 200)
     String valueDescription;
 
-    @Column(name = "value_number")
-    int valueNumber;
+    @Column(name = "value_name")
+    String valueName;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
     @OneToMany(orphanRemoval = true, mappedBy = "value")
     List<Card> cards;
 
+    public Value(String valueName) {
+        this.valueName = valueName;
+    }
     public void addCard(Card card) {
         if (cards == null) {
             cards = new ArrayList<>();
