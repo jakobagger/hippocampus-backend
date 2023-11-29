@@ -23,5 +23,4 @@ public class MemberRequest {
         this.password = password;
     }
 
-
 }

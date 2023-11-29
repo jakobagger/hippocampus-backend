@@ -17,26 +17,27 @@ public class Suit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "suit_id")
-    int suitId;
+    private int suitId;
     @Column(name = "suit_description", length = 200)
-    String suitDescription;
-
+    private String suitDescription;
     @Column(name = "suit_name")
-    String suitName;
-
+    private String suitName;
 
     @ManyToOne()
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 
- @OneToMany(orphanRemoval = true, mappedBy = "suit")
- List<Card> cards;
+    @OneToMany(orphanRemoval = true, mappedBy = "suit")
+    List<Card> cards;
 
-   public void addCard(Card card){
+    public Suit(String suitName){
+        this.suitName = suitName;
+    }
+
+    public void addCard(Card card){
     if(cards == null){
-      cards = new ArrayList<>();
-       }
+        cards = new ArrayList<>();
+        }
     cards.add(card);
    }
 }
-

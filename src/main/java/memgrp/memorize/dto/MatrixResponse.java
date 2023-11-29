@@ -13,10 +13,8 @@ import java.util.List;
 public class MatrixResponse {
 
     int matrixId;
-
     List<SuitResponse> suits;
     List<ValueResponse> values;
-
     List<CardResponse> cards;
 
     public MatrixResponse(Matrix matrix){
@@ -27,8 +25,8 @@ public class MatrixResponse {
         if (matrix.getValues() != null){
             this.values = matrix.getValues().stream().map(ValueResponse::new).toList();
         }
-     if (matrix.getCards() != null){
-    this.cards = matrix.getCards().stream().map(CardResponse::new).toList();
-     }
+        if (matrix.getCards() != null){
+        this.cards = matrix.getCards().stream().map(CardResponse::new).toList();
+        }
     }
 }

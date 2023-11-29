@@ -11,11 +11,11 @@ public class ValueResponse {
 
     int valueId;
     String valueDescription;
-    int valueNumber;
+    String valueName;
 
     public ValueResponse(Value value){
         this.valueId = value.getValueId();
         this.valueDescription = value.getValueDescription();
-        this.valueNumber = value.getValueNumber();
+        this.valueName = value.getValueName();
     }
 }

@@ -14,5 +14,4 @@ public class SuitRequest {
     public SuitRequest(String suitDescription){
         this.suitDescription = suitDescription;
     }
-
 }

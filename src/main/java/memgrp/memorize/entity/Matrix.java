@@ -19,7 +19,6 @@ public class Matrix {
     @Column(name = "matrix_id")
     int matrixId;
 
-
     @ManyToOne
     @JoinColumn(name = "username")
     Member member;
@@ -48,7 +47,7 @@ public class Matrix {
         this.member = member;
     }
 
-    @OneToMany(orphanRemoval = true, mappedBy = "matrix")
+    @OneToMany(/*orphanRemoval = true,*/ mappedBy = "matrix")
     List<Card> cards;
 
     public void addCard(Card card) {
@@ -57,5 +56,4 @@ public class Matrix {
         }
         cards.add(card);
     }
-
 }
