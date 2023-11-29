@@ -22,7 +22,6 @@ public class MemberResponse {
     private String firstName;
     private String lastName;
 
-
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime created;
 
@@ -32,22 +31,21 @@ public class MemberResponse {
     private List<Role> roles;
 
     public MemberResponse(Member m, boolean includeAll, boolean includeAccountStatus) {
-            this.username = m.getUsername();
-            this.email = m.getEmail();
-            if (includeAccountStatus) {
-                this.enabled = m.isEnabled();
-                this.accountNonExpired = m.isAccountNonExpired();
-                this.accountNonLocked = m.isAccountNonLocked();
-            }
-            if (includeAll) {
-                this.created = m.getCreated();
-                this.roles = m.getRoles();
-            }
+        this.username = m.getUsername();
+        this.email = m.getEmail();
+        if (includeAccountStatus) {
+            this.enabled = m.isEnabled();
+            this.accountNonExpired = m.isAccountNonExpired();
+            this.accountNonLocked = m.isAccountNonLocked();
+        }
+        if (includeAll) {
+            this.created = m.getCreated();
+            this.roles = m.getRoles();
+        }
     }
 
     public MemberResponse(Member m) {
         this.username = m.getUsername();
         this.email = m.getEmail();
     }
-
 }

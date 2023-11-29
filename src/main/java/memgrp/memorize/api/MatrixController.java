@@ -19,6 +19,7 @@ public class MatrixController {
     public MatrixController(MatrixService matrixService){
         this.matrixService = matrixService;
     }
+
     @GetMapping()
     public List<MatrixResponse> getMatrix(){
         return matrixService.getMatrix();

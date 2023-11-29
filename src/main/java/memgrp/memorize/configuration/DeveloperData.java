@@ -41,6 +41,7 @@ public class DeveloperData implements ApplicationRunner {
         setupUserWithRoles();
       
         Member member = new Member("username", "email", "password");
+
         Quiz quiz = new Quiz();
         Quiz quiz2 = new Quiz();
         memberRepository.save(member);

@@ -21,6 +21,4 @@ public class SuitService {
         suitRepository.save(suit);
     }
 
-
-
 }

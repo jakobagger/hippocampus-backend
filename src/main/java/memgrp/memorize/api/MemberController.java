@@ -25,11 +25,9 @@ public class MemberController {
         return responses;
     }
 
-
     @PostMapping
     MemberResponse addMember(@RequestBody MemberRequest request) {
 
          return memberService.addMember(request);
     }
-
 }
