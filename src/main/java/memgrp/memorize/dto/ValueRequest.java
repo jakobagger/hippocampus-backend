@@ -10,10 +10,10 @@ import lombok.Setter;
 public class ValueRequest {
 
     String valueDescription;
-    int valueNumber;
+    int valueName;
 
-    public ValueRequest(String valueDescription, int valueNumber){
+    public ValueRequest(String valueDescription, int valueName){
         this.valueDescription = valueDescription;
-        this.valueNumber = valueNumber;
+        this.valueName = valueName;
     }
 }
