@@ -20,8 +20,8 @@ public class CardResponse {
     String image;
 
     public CardResponse(Card card) {
-        this.value = String.valueOf(card.getValue());
-        this.suit = String.valueOf(card.getSuit());
+        this.value = card.getValue().getValueName();
+        this.suit = card.getSuit().getSuitName();
         this.person = card.getPerson();
         this.action = card.getAction();
         this.object = card.getObject();
