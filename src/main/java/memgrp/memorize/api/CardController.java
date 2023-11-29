@@ -7,7 +7,6 @@ import memgrp.memorize.service.CardService;
 import memgrp.memorize.service.MatrixService;
 import memgrp.memorize.service.SuitService;
 import memgrp.memorize.service.ValueService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
