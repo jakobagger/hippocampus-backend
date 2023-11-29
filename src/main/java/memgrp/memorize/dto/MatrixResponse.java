@@ -16,7 +16,6 @@ public class MatrixResponse {
 
     List<SuitResponse> suits;
     List<ValueResponse> values;
-
     List<CardResponse> cards;
 
     public MatrixResponse(Matrix matrix){
