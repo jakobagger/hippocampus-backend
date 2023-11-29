@@ -57,7 +57,6 @@ public class MatrixService {
         return responses;
     }
 
-
     public void addCardToMatrix(Card card, int matrixId) {
         Matrix matrix = matrixRepository.findById(matrixId)
                 .orElseThrow(() -> new EntityNotFoundException("Matrix not found"));
