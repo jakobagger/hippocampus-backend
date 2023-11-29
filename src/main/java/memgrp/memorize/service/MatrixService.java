@@ -20,9 +20,8 @@ public class MatrixService {
 
     MatrixRepository matrixRepository;
     ValueRepository valueRepository;
-
-
     SuitRepository suitRepository;
+
     public MatrixService(MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository){
         this.matrixRepository = matrixRepository;
         this.valueRepository = valueRepository;
@@ -37,6 +36,8 @@ public class MatrixService {
         }
         return responses;
     }
+
+
 
     public List<ValueResponse> getValue(){
         List<Value> values = valueRepository.findAll();
