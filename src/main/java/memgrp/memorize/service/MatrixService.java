@@ -5,6 +5,7 @@ import memgrp.memorize.dto.MatrixResponse;
 import memgrp.memorize.dto.SuitResponse;
 import memgrp.memorize.dto.ValueResponse;
 import memgrp.memorize.entity.Card;
+
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Suit;
 import memgrp.memorize.entity.Value;
@@ -20,8 +21,6 @@ public class MatrixService {
 
     MatrixRepository matrixRepository;
     ValueRepository valueRepository;
-
-
     SuitRepository suitRepository;
     public MatrixService(MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository){
         this.matrixRepository = matrixRepository;
@@ -57,6 +56,7 @@ public class MatrixService {
         }
         return responses;
     }
+
 
     public void addCardToMatrix(Card card, int matrixId) {
         Matrix matrix = matrixRepository.findById(matrixId)
