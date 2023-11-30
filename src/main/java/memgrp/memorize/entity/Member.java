@@ -27,6 +27,16 @@ public class Member extends UserWithRoles {
     @OneToMany(mappedBy = "member")
     List<Quiz> quizList;
 
+    @OneToMany(mappedBy = "member")
+    List<Score> scoreList;
+
+    public void addScore(Score score) {
+        if(scoreList==null) {
+            scoreList = new ArrayList<>();
+        }
+        scoreList.add(score);
+    }
+
     public void addQuiz(Quiz quiz) {
         if(quizList == null) {
             quizList = new ArrayList<>();

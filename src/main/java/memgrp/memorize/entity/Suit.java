@@ -23,7 +23,7 @@ public class Suit {
     @Column(name = "suit_name")
     private String suitName;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
 

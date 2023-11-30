@@ -26,7 +26,7 @@ public class DeveloperData implements ApplicationRunner {
     QuizRepository quizRepository;
     CardRepository cardRepository;
 
-    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository, CardRepository cardRepository) {
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, CardRepository cardRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
         this.matrixRepository = matrixRepository;
         this.valueRepository = valueRepository;
@@ -39,8 +39,10 @@ public class DeveloperData implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         setupUserWithRoles();
-      
+
         Member member = new Member("username", "email", "password");
+
+        Matrix matrix3 = new Matrix();
 
         Quiz quiz = new Quiz();
         Quiz quiz2 = new Quiz();
@@ -60,6 +62,7 @@ public class DeveloperData implements ApplicationRunner {
         values.add(c2);
         values.add(c3);
         values.add(c4);
+        c1.setValueName("1");
         c1.setValueName("Ace");
         c1.setValueDescription("Strong");
 
@@ -95,8 +98,6 @@ public class DeveloperData implements ApplicationRunner {
             suit.setMatrix(matrix1);
         }
         suitRepository.saveAll(suits);
-
-
     }
 
     @Autowired
@@ -110,15 +111,21 @@ public class DeveloperData implements ApplicationRunner {
         System.out.println("**** ** ON YOUR REMOTE DATABASE                 ******************************");
         System.out.println("******************************************************************************");
 
+        UserWithRoles MemoryAdmin = new UserWithRoles("MemoryAdmin", "MemoryAdmin@memorygym.dk", "asd");
         UserWithRoles user1 = new UserWithRoles("user1", "user1@a.com", passwordUsedByAll);
         UserWithRoles user2 = new UserWithRoles("user2", "user2@a.com", passwordUsedByAll);
         UserWithRoles user3 = new UserWithRoles("user3", "user3@a.com", passwordUsedByAll);
         UserWithRoles user4 = new UserWithRoles("user4", "user4@a.com", passwordUsedByAll);
+        UserWithRoles OnlyAdmin = new UserWithRoles("OnlyAdmin", "Only@admin.dk", "asd");
+        MemoryAdmin.addRole(Role.USER);
+        MemoryAdmin.addRole(Role.ADMIN);
         user1.addRole(Role.USER);
-        user1.addRole(Role.ADMIN);
         user2.addRole(Role.USER);
         user3.addRole(Role.ADMIN);
+        OnlyAdmin.addRole(Role.ADMIN);
         //No Role assigned to user4
+        userWithRolesRepository.save(MemoryAdmin);
+        userWithRolesRepository.save(OnlyAdmin);
         userWithRolesRepository.save(user1);
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
