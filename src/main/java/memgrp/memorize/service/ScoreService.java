@@ -1,6 +1,5 @@
 package memgrp.memorize.service;
 
-import memgrp.memorize.dto.MemberRequest;
 import memgrp.memorize.dto.ScoreRequest;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Quiz;

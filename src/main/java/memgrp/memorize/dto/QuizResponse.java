@@ -2,7 +2,6 @@ package memgrp.memorize.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Quiz;
 
