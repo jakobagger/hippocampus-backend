@@ -32,10 +32,6 @@ public class Card {
     @Column(name = "image", length = 1234567)
     private String base64;
 
-    @ManyToOne
-    @JoinColumn(name = "matrix_id")
-    private Matrix matrix;
-
     @ManyToMany(mappedBy = "cards")
     List<Quiz> quizList;
 

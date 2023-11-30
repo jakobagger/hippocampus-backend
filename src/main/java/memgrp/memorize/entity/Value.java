@@ -26,10 +26,6 @@ public class Value {
     String valueDescription;
     @Column(name = "value_name")
     String valueName;
-    @ManyToOne
-    private String valueDescription;
-    @Column(name = "value_name")
-    private String valueName;
     @ManyToOne()
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
