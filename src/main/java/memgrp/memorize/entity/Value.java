@@ -23,16 +23,16 @@ public class Value {
     @Column(name = "value_id")
     private int valueId;
     @Column(name = "value_description", length = 200)
-    private String valueDescription;
+    String valueDescription;
     @Column(name = "value_name")
-    private String valueName;
+    String valueName;
     @ManyToOne()
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
     @OneToMany(orphanRemoval = true, mappedBy = "value")
     List<Card> cards;
 
-    public Value(String valueName){
+    public Value(String valueName) {
         this.valueName = valueName;
     }
 
@@ -43,4 +43,3 @@ public class Value {
         cards.add(card);
     }
 }
-
