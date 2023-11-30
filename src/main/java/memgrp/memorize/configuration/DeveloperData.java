@@ -26,7 +26,7 @@ public class DeveloperData implements ApplicationRunner {
     QuizRepository quizRepository;
     CardRepository cardRepository;
 
-    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository, CardRepository cardRepository) {
+    public DeveloperData(MemberRepository memberRepository, MatrixRepository matrixRepository, CardRepository cardRepository,  ValueRepository valueRepository, SuitRepository suitRepository, QuizRepository quizRepository) {
         this.memberRepository = memberRepository;
         this.matrixRepository = matrixRepository;
         this.valueRepository = valueRepository;
@@ -39,8 +39,10 @@ public class DeveloperData implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
         setupUserWithRoles();
-      
+
         Member member = new Member("username", "email", "password");
+
+        Matrix matrix3 = new Matrix();
 
         Quiz quiz = new Quiz();
         Quiz quiz2 = new Quiz();
@@ -60,6 +62,7 @@ public class DeveloperData implements ApplicationRunner {
         values.add(c2);
         values.add(c3);
         values.add(c4);
+        c1.setValueName("1");
         c1.setValueName("Ace");
         c1.setValueDescription("Strong");
 
@@ -95,8 +98,6 @@ public class DeveloperData implements ApplicationRunner {
             suit.setMatrix(matrix1);
         }
         suitRepository.saveAll(suits);
-
-
     }
 
     @Autowired

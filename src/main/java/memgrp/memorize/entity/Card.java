@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,6 +31,21 @@ public class Card {
     @Lob
     @Column(name = "image", length = 1234567)
     private String base64;
+
+    @ManyToOne
+    @JoinColumn(name = "matrix_id")
+    private Matrix matrix;
+
+    @ManyToMany(mappedBy = "cards")
+    List<Quiz> quizList;
+
+    public void addQuiz(Quiz quiz) {
+        if(quizList==null) {
+            quizList = new ArrayList<>();
+        }
+        quizList.add(quiz);
+    }
+
 
     public Card(Value value, Suit suit, String person, String action, String object, String base64) {
         this.value = value;
