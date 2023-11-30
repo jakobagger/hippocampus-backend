@@ -17,13 +17,9 @@ import java.util.List;
 public class QuizResponse {
 
     int id;
-
     String quizName;
-
     int quizSize;
-
     Member member;
-
     boolean isDefault;
 
     List<CardResponse> cards;

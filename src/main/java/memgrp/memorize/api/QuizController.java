@@ -26,6 +26,5 @@ public class QuizController {
         return responses;
 
     }
-
-
 }
+

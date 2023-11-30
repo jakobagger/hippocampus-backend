@@ -20,11 +20,9 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
-    String quizName;
-
-    int quizSize;
+    private int id;
+    private String quizName;
+    private int quizSize;
 
     @ManyToOne
     @JoinColumn(name = "username")

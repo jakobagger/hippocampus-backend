@@ -19,7 +19,6 @@ public class Matrix {
     @Column(name = "matrix_id")
     int matrixId;
 
-
     @ManyToOne
     @JoinColumn(name = "username")
     Member member;
@@ -57,5 +56,4 @@ public class Matrix {
         }
         cards.add(card);
     }
-
 }

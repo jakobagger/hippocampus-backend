@@ -21,11 +21,9 @@ import java.util.List;
 public class Member extends UserWithRoles {
 
     @Column(name = "first_name")
-    String firstName;
-
+    private String firstName;
     @Column(name = "last_name")
-    String lastName;
-
+    private String lastName;
     @OneToMany(mappedBy = "member")
     List<Quiz> quizList;
 

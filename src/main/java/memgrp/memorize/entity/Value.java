@@ -21,24 +21,25 @@ public class Value {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "value_id")
-    int valueId;
-
+    private int valueId;
     @Column(name = "value_description", length = 200)
     String valueDescription;
-
     @Column(name = "value_name")
     String valueName;
-
     @ManyToOne
+    private String valueDescription;
+    @Column(name = "value_name")
+    private String valueName;
+    @ManyToOne()
     @JoinColumn(name = "matrix_id")
     Matrix matrix;
-
     @OneToMany(orphanRemoval = true, mappedBy = "value")
     List<Card> cards;
 
     public Value(String valueName) {
         this.valueName = valueName;
     }
+
     public void addCard(Card card) {
         if (cards == null) {
             cards = new ArrayList<>();
@@ -46,4 +47,3 @@ public class Value {
         cards.add(card);
     }
 }
-

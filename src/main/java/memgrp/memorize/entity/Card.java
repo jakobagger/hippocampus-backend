@@ -16,11 +16,12 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cardId;
-
+    @ManyToOne
+    @JoinColumn(name="matrix_id")
+    private Matrix matrix;
     @ManyToOne
     @JoinColumn(name = "value_id")
     private Value value;
-
     @ManyToOne
     @JoinColumn(name ="suit_id")
     private Suit suit;
@@ -29,7 +30,7 @@ public class Card {
     private String object;
     @Lob
     @Column(name = "image", length = 1234567)
-    private String Base64;
+    private String base64;
 
     @ManyToOne
     @JoinColumn(name = "matrix_id")
@@ -46,7 +47,7 @@ public class Card {
     }
 
 
-    public Card(Value value, Suit suit, String person, String action, String object, String Base64) {
+    public Card(Value value, Suit suit, String person, String action, String object, String base64) {
         this.value = value;
         value.addCard(this);
         this.suit = suit;
@@ -54,7 +55,6 @@ public class Card {
         this.person = person;
         this.action = action;
         this.object = object;
-        this.Base64 = Base64;
+        this.base64 = base64;
     }
-
 }
