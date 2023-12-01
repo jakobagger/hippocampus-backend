@@ -43,10 +43,6 @@ public class Matrix {
         suits.add(suit);
     }
 
-    public Matrix(Member member) {
-        this.member = member;
-    }
-
     @OneToMany(/*orphanRemoval = true,*/ mappedBy = "matrix")
     List<Card> cards;
 
@@ -55,5 +51,13 @@ public class Matrix {
             cards = new ArrayList<>();
         }
         cards.add(card);
+    }
+
+    public Matrix(Member member) {
+        this.member = member;
+    }
+
+    public Matrix(int matrixId){
+        this.matrixId = matrixId;
     }
 }
