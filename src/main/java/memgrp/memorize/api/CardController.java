@@ -19,17 +19,15 @@ import java.util.List;
 public class CardController {
 
     CardService cardService;
-
     ValueService valueService;
-
     SuitService suitService;
-
     MatrixService matrixService;
 
-    public CardController(CardService cardService, ValueService valueService, SuitService suitService) {
+    public CardController(CardService cardService, ValueService valueService, SuitService suitService, MatrixService matrixService) {
         this.cardService = cardService;
         this.valueService = valueService;
         this.suitService = suitService;
+        this.matrixService = matrixService;
     }
 
     @GetMapping
@@ -46,7 +44,4 @@ public class CardController {
         return ResponseEntity.ok(addedCard);
     }
 
-
 }
-
-

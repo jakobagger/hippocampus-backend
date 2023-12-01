@@ -1,0 +1,15 @@
+create table card (card_id integer not null auto_increment, matrix_id integer, suit_id integer, value_id integer, action varchar(255), object varchar(255), person varchar(255), image mediumtext, primary key (card_id)) engine=InnoDB;
+create table matrix (matrix_id integer not null auto_increment, username varchar(50), primary key (matrix_id)) engine=InnoDB;
+create table member (enabled bit not null, user_created datetime(6), user_updated datetime(6), discriminator_type varchar(31) not null, user_email varchar(50) not null, username varchar(50) not null, user_password varchar(60) not null, first_name varchar(255), last_name varchar(255), primary key (username)) engine=InnoDB;
+create table quiz (id integer not null auto_increment, quiz_size integer not null, username varchar(50), quiz_name varchar(255), primary key (id)) engine=InnoDB;
+create table security_role (user_with_roles_username varchar(50) not null, roles ENUM('USER','ADMIN')) engine=InnoDB;
+create table suit (matrix_id integer, suit_id integer not null auto_increment, suit_description varchar(200), suit_name varchar(255), primary key (suit_id)) engine=InnoDB;
+create table value (matrix_id integer, value_id integer not null auto_increment, value_description varchar(200), value_name varchar(255), primary key (value_id)) engine=InnoDB;
+alter table card add constraint FK19ty6dk77v01b47wdsbxq6y56 foreign key (matrix_id) references matrix (matrix_id);
+alter table card add constraint FKqsfbx4pke8wqo3ueglhn99s0c foreign key (suit_id) references suit (suit_id);
+alter table card add constraint FK56uljpefhkq2go4qhbynnw0k0 foreign key (value_id) references value (value_id);
+alter table matrix add constraint FKaanfdu4lheoulbfwpdwyjrsj1 foreign key (username) references member (username);
+alter table quiz add constraint FK8lvt9xsl7u1vsu1q3h32wvtmg foreign key (username) references member (username);
+alter table security_role add constraint FK2efli6f5dx37ga6585htobumy foreign key (user_with_roles_username) references member (username);
+alter table suit add constraint FKlspx4an39xsdpcl7882nuvmpb foreign key (matrix_id) references matrix (matrix_id);
+alter table value add constraint FKkltb5ypab161jvv03st4apmel foreign key (matrix_id) references matrix (matrix_id);

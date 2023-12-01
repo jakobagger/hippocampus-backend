@@ -28,5 +28,3 @@ public class CardResponse {
         this.image = card.getBase64();
     }
 }
-
-

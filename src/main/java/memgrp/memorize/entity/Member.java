@@ -21,13 +21,21 @@ import java.util.List;
 public class Member extends UserWithRoles {
 
     @Column(name = "first_name")
-    String firstName;
-
+    private String firstName;
     @Column(name = "last_name")
-    String lastName;
-
+    private String lastName;
     @OneToMany(mappedBy = "member")
     List<Quiz> quizList;
+
+    @OneToMany(mappedBy = "member")
+    List<Score> scoreList;
+
+    public void addScore(Score score) {
+        if(scoreList==null) {
+            scoreList = new ArrayList<>();
+        }
+        scoreList.add(score);
+    }
 
     public void addQuiz(Quiz quiz) {
         if(quizList == null) {
