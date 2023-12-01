@@ -10,6 +10,7 @@ import memgrp.memorize.service.ValueService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -38,31 +39,14 @@ public class CardController {
 
     }
 
-    @PostMapping("/matrix/{matrixId}")
-    public ResponseEntity<String> addCardToMatrix(@RequestBody Card card, @PathVariable int matrixId) {
-        matrixService.addCardToMatrix(card, matrixId);
-        return ResponseEntity.ok("Card added to Matrix successfully");
+    @PostMapping("/add")
+    public ResponseEntity<Card> addNewCard(@RequestBody Card card) {
+        // Save the card entity (assuming you have a cardService)
+        Card addedCard = cardService.addNewCard(card);
+        return ResponseEntity.ok(addedCard);
     }
-
-    @PostMapping("/value/{valueId}")
-    public ResponseEntity<String> addCardToValue(@RequestBody Card card, @PathVariable int valueId) {
-        valueService.addCardToValue(card, valueId);
-        return ResponseEntity.ok("Card added to Value successfully");
-    }
-
-    @PostMapping("/suit/{suitId}")
-    public ResponseEntity<String> addCardToSuit(@RequestBody Card card, @PathVariable int suitId) {
-        suitService.addCardToSuit(card, suitId);
-        return ResponseEntity.ok("Card added to Suit successfully");
-    }
-
-
-
-
-
-
-
-
 
 
 }
+
+
