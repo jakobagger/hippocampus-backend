@@ -27,14 +27,8 @@ public class MatrixService {
         this.matrixRepository = matrixRepository;
         this.memberRepository = memberRepository;
         this.valueRepository = valueRepository;
-        this.suitRepository = suitRepository
-    ValueRepository valueRepository;
-    SuitRepository suitRepository;
+        this.suitRepository = suitRepository;
 
-    public MatrixService(MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository){
-        this.matrixRepository = matrixRepository;
-
-        ;
     }
     public List<MatrixResponse> getMatrix() {
         List<Matrix> matrixList = matrixRepository.findAll();
@@ -59,26 +53,6 @@ public class MatrixService {
 
 
 
-
-    public List<ValueResponse> getValue(){
-        List<Value> values = valueRepository.findAll();
-        List<ValueResponse> responses = new ArrayList<>();
-        for(Value value : values){
-            ValueResponse valueResponse = new ValueResponse(value);
-            responses.add(valueResponse);
-        }
-        return responses;
-    }
-
-    public List<SuitResponse> getSuit() {
-        List<Suit> suits = suitRepository.findAll();
-        List<SuitResponse> responses = new ArrayList<>();
-        for (Suit suit : suits){
-            SuitResponse suitResponse = new SuitResponse(suit);
-            responses.add(suitResponse);
-        }
-        return responses;
-    }
 
 
     public void addCardToMatrix(Card card, int matrixId) {
