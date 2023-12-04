@@ -56,12 +56,4 @@ public class Matrix {
         }
         cards.add(card);
     }
-
-    public Matrix(Member member) {
-        this.member = member;
-    }
-
-    public Matrix(int matrixId){
-        this.matrixId = matrixId;
-    }
 }
