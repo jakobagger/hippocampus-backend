@@ -19,7 +19,7 @@ public class ValueController {
         this.valueService = valueService;
     }
 
-    @GetMapping("/value")
+    @GetMapping()
     public List<ValueResponse> getValues(){
         return valueService.getValue();
     }

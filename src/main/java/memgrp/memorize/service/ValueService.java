@@ -29,6 +29,7 @@ public class ValueService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This Value already exist");
         }
         Value newValue = ValueRequest.getValueEntity(body);
+        valueRepository.save(newValue);
         return new ValueResponse(newValue);
     }
 

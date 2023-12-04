@@ -26,7 +26,7 @@ public class SuitService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "this suit already exist");
         }
         Suit newSuit = SuitRequest.getSuitEntity(suit);
-        newSuit = suitRepository.save(newSuit);
+        suitRepository.save(newSuit);
 
         return new SuitResponse(newSuit);
     }

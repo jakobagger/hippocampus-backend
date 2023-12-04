@@ -35,6 +35,8 @@ public class Suit {
     }
 
     public Suit(String suitName, String suitDescription) {
+        this.suitName = suitName;
+        this.suitDescription = suitDescription;
     }
 
     public void addCard(Card card){

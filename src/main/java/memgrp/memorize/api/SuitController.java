@@ -18,7 +18,7 @@ public class SuitController {
     public SuitController(SuitService suitService){
         this.suitService = suitService;
     }
-    @GetMapping("/suit")
+    @GetMapping()
     public List<SuitResponse> getSuits(){
         return suitService.getSuit();
     }
