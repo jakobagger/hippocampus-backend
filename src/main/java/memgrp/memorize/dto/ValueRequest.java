@@ -14,8 +14,13 @@ public class ValueRequest {
     String valueDescription;
     String valueName;
 
+
     public ValueRequest(int valueId, String valueDescription, String valueName){
         this.valueId = valueId;
+    }
+
+    public ValueRequest(String valueDescription, String valueName){
+
         this.valueDescription = valueDescription;
         this.valueName = valueName;
     }
