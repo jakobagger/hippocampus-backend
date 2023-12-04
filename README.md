@@ -4,7 +4,7 @@
 
 |                           |          |                                                   |
 |---------------------------|:--------:|:--------------------------------------------------:|
-| Lotte Face Eliasson       | lott4328 | [GitHub Profile](https://github.com/LotteEliasson) |
+| Lotte Facer Eliasson       | lott4328 | [GitHub Profile](https://github.com/LotteEliasson) |
 | Mikkel Olsen              | mikk39k3 | [GitHub Profile](https://github.com/Selmerr)       |
 | Jakob Agger Johannessen   | jako894n | [GitHub Profile](https://github.com/jakobagger)    |
 | Hannan Ahmed Mohamad Noor | hann7575 | [GitHub Profile](https://github.com/Hannanxnoor)   |
