@@ -34,6 +34,11 @@ public class Suit {
         this.suitName = suitName;
     }
 
+    public Suit(String suitName, String suitDescription) {
+        this.suitName = suitName;
+        this.suitDescription = suitDescription;
+    }
+
     public void addCard(Card card){
     if(cards == null){
         cards = new ArrayList<>();

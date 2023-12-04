@@ -4,7 +4,7 @@
 
 |                           |          |                                                   |
 |---------------------------|:--------:|:--------------------------------------------------:|
-| Lotte Face Eliasson       | lott4328 | [GitHub Profile](https://github.com/LotteEliasson) |
+| Lotte Facer Eliasson       | lott4328 | [GitHub Profile](https://github.com/LotteEliasson) |
 | Mikkel Olsen              | mikk39k3 | [GitHub Profile](https://github.com/Selmerr)       |
 | Jakob Agger Johannessen   | jako894n | [GitHub Profile](https://github.com/jakobagger)    |
 | Hannan Ahmed Mohamad Noor | hann7575 | [GitHub Profile](https://github.com/Hannanxnoor)   |
@@ -49,5 +49,3 @@ We use the <b>'main'</b> branch as our released codebase. For new developments, 
 ### Contact
 - **Primary Communication Channel**: Discord
 - **Secondary Communication Channel**: Smoke signals / Telepathy
-
-
