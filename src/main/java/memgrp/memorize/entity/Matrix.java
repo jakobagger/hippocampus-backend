@@ -43,9 +43,6 @@ public class Matrix {
         suits.add(suit);
     }
 
-    public Matrix(Member member) {
-        this.member = member;
-    }
 
     @OneToMany(mappedBy = "matrix")
     List<Card> cards;

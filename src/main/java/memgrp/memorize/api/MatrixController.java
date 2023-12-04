@@ -27,16 +27,7 @@ public class MatrixController {
 
 
     @PostMapping()
-    MatrixResponse addMatrix(@RequestBody MatrixRequest body){
+    MatrixResponse addMatrix(@RequestBody MatrixRequest body) {
         return matrixService.addMatrix(body);
-      
-    @GetMapping("/value")
-    public List<ValueResponse> getValues(){
-        return matrixService.getValue();
-    }
-
-    @GetMapping("/suit")
-    public List<SuitResponse> getSuits(){
-        return matrixService.getSuit();
     }
 }
