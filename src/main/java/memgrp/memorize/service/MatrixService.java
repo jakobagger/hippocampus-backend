@@ -1,17 +1,17 @@
 package memgrp.memorize.service;
-
 import jakarta.persistence.EntityNotFoundException;
+import memgrp.memorize.dto.MatrixRequest;
 import memgrp.memorize.dto.MatrixResponse;
 import memgrp.memorize.dto.SuitResponse;
 import memgrp.memorize.dto.ValueResponse;
-import memgrp.memorize.entity.Card;
-import memgrp.memorize.entity.Matrix;
-import memgrp.memorize.entity.Suit;
-import memgrp.memorize.entity.Value;
+import memgrp.memorize.entity.*;
 import memgrp.memorize.repository.MatrixRepository;
+import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
 import memgrp.memorize.repository.ValueRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +19,22 @@ import java.util.List;
 public class MatrixService {
 
     MatrixRepository matrixRepository;
+
+    MemberRepository memberRepository;
+    ValueRepository valueRepository;
+    SuitRepository suitRepository;
+    public MatrixService(MatrixRepository matrixRepository, MemberRepository memberRepository, ValueRepository valueRepository, SuitRepository suitRepository){
+        this.matrixRepository = matrixRepository;
+        this.memberRepository = memberRepository;
+        this.valueRepository = valueRepository;
+        this.suitRepository = suitRepository
     ValueRepository valueRepository;
     SuitRepository suitRepository;
 
     public MatrixService(MatrixRepository matrixRepository, ValueRepository valueRepository, SuitRepository suitRepository){
         this.matrixRepository = matrixRepository;
-        this.valueRepository = valueRepository;
-        this.suitRepository = suitRepository;
+
+        ;
     }
     public List<MatrixResponse> getMatrix() {
         List<Matrix> matrixList = matrixRepository.findAll();
@@ -36,6 +45,18 @@ public class MatrixService {
         }
         return responses;
     }
+
+    public MatrixResponse addMatrix(MatrixRequest body){
+        if(matrixRepository.existsById(body.getMatrixId())){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This Matrix already exist");
+        }
+        Matrix newMatrix = MatrixRequest.getMatrixEntity(body);
+        newMatrix = matrixRepository.save(newMatrix);
+
+    return new MatrixResponse(newMatrix);
+    }
+
+
 
 
 
@@ -58,6 +79,7 @@ public class MatrixService {
         }
         return responses;
     }
+
 
     public void addCardToMatrix(Card card, int matrixId) {
         Matrix matrix = matrixRepository.findById(matrixId)
