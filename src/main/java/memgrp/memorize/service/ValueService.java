@@ -5,6 +5,7 @@ import memgrp.memorize.dto.ValueRequest;
 import memgrp.memorize.dto.ValueResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Value;
+import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.ValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,11 @@ public class ValueService {
 
 
     private ValueRepository valueRepository;
-    public ValueService(ValueRepository valueRepository){
+    private MatrixRepository matrixRepository;
+
+    public ValueService(ValueRepository valueRepository, MatrixRepository matrixRepository){
         this.valueRepository = valueRepository;
+        this.matrixRepository = matrixRepository;
     }
 
     public ValueResponse addValue(ValueRequest body){

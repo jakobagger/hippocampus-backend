@@ -18,6 +18,8 @@ public class Matrix {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "matrix_id")
     int matrixId;
+    @Column(name = "matrix_name")
+    String matrixName;
 
     @ManyToOne
     @JoinColumn(name = "username")
@@ -58,7 +60,8 @@ public class Matrix {
         this.member = member;
     }
 
-    public Matrix(int matrixId){
+    public Matrix(int matrixId, String matrixName){
         this.matrixId = matrixId;
+        this.matrixName = matrixName;
     }
 }
