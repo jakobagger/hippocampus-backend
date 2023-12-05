@@ -11,9 +11,10 @@ import memgrp.memorize.entity.Matrix;
 public class MatrixRequest {
 
     int matrixId;
+    String matrixName;
 
     public static Matrix getMatrixEntity(MatrixRequest matrix){
-        return new Matrix(matrix.getMatrixId());
+        return new Matrix(matrix.getMatrixId(), matrix.getMatrixName());
     }
 
 

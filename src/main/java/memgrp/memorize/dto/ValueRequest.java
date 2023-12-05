@@ -13,6 +13,7 @@ public class ValueRequest {
     int valueId;
     String valueDescription;
     String valueName;
+    int matrixId;
 
 
     public ValueRequest(int valueId, String valueDescription, String valueName){

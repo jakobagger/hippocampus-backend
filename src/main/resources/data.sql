@@ -1,4 +1,4 @@
-INSERT INTO matrix VALUES (DEFAULT, DEFAULT);
+INSERT INTO matrix (matrix_name) VALUES ("Default");
 INSERT INTO suit (matrix_id, suit_description, suit_name) VALUES (1,"Lovable, Great, Good","Hearts");
 INSERT INTO suit (matrix_id, suit_description, suit_name) VALUES (1,"Humorous, Absurd","Spades");
 INSERT INTO suit (matrix_id, suit_description, suit_name) VALUES (1,"Rich, Stylish, Bling","Diamonds");

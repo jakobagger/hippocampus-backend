@@ -45,4 +45,5 @@ public class Suit {
         }
     cards.add(card);
    }
+
 }
