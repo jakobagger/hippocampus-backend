@@ -18,6 +18,8 @@ public class Matrix {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "matrix_id")
     int matrixId;
+    @Column(name = "matrix_name")
+    String matrixName;
 
     @ManyToOne
     @JoinColumn(name = "username")
@@ -43,9 +45,6 @@ public class Matrix {
         suits.add(suit);
     }
 
-    public Matrix(Member member) {
-        this.member = member;
-    }
 
     @OneToMany(mappedBy = "matrix")
     List<Card> cards;
@@ -55,5 +54,14 @@ public class Matrix {
             cards = new ArrayList<>();
         }
         cards.add(card);
+    }
+
+    public Matrix(Member member) {
+        this.member = member;
+    }
+
+    public Matrix(int matrixId, String matrixName){
+        this.matrixId = matrixId;
+        this.matrixName = matrixName;
     }
 }

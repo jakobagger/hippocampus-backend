@@ -42,4 +42,10 @@ public class Value {
         }
         cards.add(card);
     }
+
+    public Value(String valueName, String valueDescription){
+        this.valueName = valueName;
+        this.valueDescription = valueDescription;
+    }
+
 }
