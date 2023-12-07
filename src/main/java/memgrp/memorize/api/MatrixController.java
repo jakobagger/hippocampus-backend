@@ -1,11 +1,11 @@
 package memgrp.memorize.api;
 
+import memgrp.memorize.dto.MatrixRequest;
 import memgrp.memorize.dto.MatrixResponse;
+import memgrp.memorize.dto.SuitResponse;
+import memgrp.memorize.dto.ValueResponse;
 import memgrp.memorize.service.MatrixService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +28,9 @@ public class MatrixController {
     @GetMapping("/default")
     public MatrixResponse getDefaultMatrix() {
         return matrixService.getDefaultMatrix();
+    }
+    @PostMapping
+    MatrixResponse addMatrix(@RequestBody MatrixRequest body) {
+        return matrixService.addMatrix(body);
     }
 }
