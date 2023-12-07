@@ -24,4 +24,9 @@ public class MatrixController {
     public List<MatrixResponse> getMatrix(){
         return matrixService.getMatrix();
     }
+
+    @GetMapping("/default")
+    public MatrixResponse getDefaultMatrix() {
+        return matrixService.getDefaultMatrix();
+    }
 }

@@ -6,7 +6,10 @@ import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.repository.MatrixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +39,9 @@ public class MatrixService {
         matrixRepository.save(matrix);
     }
 
+    public MatrixResponse getDefaultMatrix() {
+        Matrix matrix = matrixRepository.findById(1).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Default Matrix doesn't exist"));
+        MatrixResponse response = new MatrixResponse(matrix);
+        return response;
+    }
 }
