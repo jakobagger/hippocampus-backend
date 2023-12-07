@@ -1,21 +1,15 @@
 package memgrp.memorize.service;
+
 import jakarta.persistence.EntityNotFoundException;
 import memgrp.memorize.dto.MatrixRequest;
 import memgrp.memorize.dto.MatrixResponse;
-import memgrp.memorize.dto.SuitResponse;
-import memgrp.memorize.dto.ValueResponse;
-import memgrp.memorize.entity.*;
+import memgrp.memorize.entity.Card;
+import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.repository.MatrixRepository;
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-=======
 import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
 import memgrp.memorize.repository.ValueRepository;
 import org.springframework.http.HttpStatus;
->>>>>>> f14a2e260c1112462800ece69a70908542e34a2a
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
