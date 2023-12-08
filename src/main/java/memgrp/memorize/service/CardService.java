@@ -20,4 +20,21 @@ public class CardService {
         List<CardResponse> response = cards.stream().map((card -> new CardResponse(card))).toList();
         return response;
     }
+
+    public Card addNewCard(Card card){
+        return cardRepository.save(card);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

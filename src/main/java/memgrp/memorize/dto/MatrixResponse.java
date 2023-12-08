@@ -13,12 +13,14 @@ import java.util.List;
 public class MatrixResponse {
 
     int matrixId;
+    String matrixName;
     List<SuitResponse> suits;
     List<ValueResponse> values;
     List<CardResponse> cards;
 
     public MatrixResponse(Matrix matrix){
         this.matrixId = matrix.getMatrixId();
+        this.matrixName = matrix.getMatrixName();
         if(matrix.getSuits() != null){
             this.suits = matrix.getSuits().stream().map(SuitResponse::new).toList();
         }
