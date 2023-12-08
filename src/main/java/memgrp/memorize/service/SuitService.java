@@ -1,13 +1,20 @@
 package memgrp.memorize.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import memgrp.memorize.dto.SuitRequest;
+import memgrp.memorize.dto.SuitResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Suit;
 import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.SuitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class SuitService {

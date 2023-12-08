@@ -1,6 +1,7 @@
 package memgrp.memorize.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import memgrp.memorize.dto.MatrixRequest;
 import memgrp.memorize.dto.MatrixResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
@@ -11,9 +12,12 @@ import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Suit;
 import memgrp.memorize.entity.Value;
 import memgrp.memorize.repository.MatrixRepository;
+import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
 import memgrp.memorize.repository.ValueRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;

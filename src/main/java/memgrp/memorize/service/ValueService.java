@@ -1,12 +1,19 @@
 package memgrp.memorize.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import memgrp.memorize.dto.ValueRequest;
+import memgrp.memorize.dto.ValueResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Value;
 import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.ValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ValueService {
