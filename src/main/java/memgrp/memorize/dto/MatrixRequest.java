@@ -3,7 +3,6 @@ package memgrp.memorize.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import memgrp.memorize.entity.Matrix;
 
 @Getter
 @Setter
@@ -16,6 +15,4 @@ public class MatrixRequest {
     public static Matrix getMatrixEntity(MatrixRequest matrix){
         return new Matrix(matrix.getMatrixId(), matrix.getMatrixName());
     }
-
-
 }
