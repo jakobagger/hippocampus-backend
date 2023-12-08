@@ -35,22 +35,22 @@ public class ValueController {
         return valueService.getValue();
     }
 
-//    @PostMapping()
-//    ValueResponse addValue(@RequestBody ValueRequest body) {
-//        return valueService.addValue(body);
-//    }
-
     @PostMapping()
-    List<ValueResponse> addValues(@RequestBody List<ValueRequest> body) {
-        List<ValueResponse> responses = new ArrayList<>();
-        for (ValueRequest value : body) {
-            Value newValue = ValueRequest.getValueEntity(value);
-            Matrix matrix = matrixRepository.findById(value.getMatrixId()).orElseThrow(() -> new EntityNotFoundException("Matrix not found"));
-            newValue.setMatrix(matrix);
-            valueRepository.save(newValue);
-            responses.add(new ValueResponse(newValue));
-        }
-        return responses;
+    ValueResponse addValue(@RequestBody ValueRequest body) {
+        return valueService.addValue(body);
     }
+
+//    @PostMapping()
+//    List<ValueResponse> addValues(@RequestBody List<ValueRequest> body) {
+//        List<ValueResponse> responses = new ArrayList<>();
+//        for (ValueRequest value : body) {
+//            Value newValue = ValueRequest.getValueEntity(value);
+//            Matrix matrix = matrixRepository.findById(value.getMatrixId()).orElseThrow(() -> new EntityNotFoundException("Matrix not found"));
+//            newValue.setMatrix(matrix);
+//            valueRepository.save(newValue);
+//            responses.add(new ValueResponse(newValue));
+//        }
+//        return responses;
+//    }
 
 }

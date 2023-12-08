@@ -41,7 +41,6 @@ public class SuitService {
         return new SuitResponse(newSuit);
     }
 
-
     public List<SuitResponse> getSuit() {
         List<Suit> suits = suitRepository.findAll();
         List<SuitResponse> responses = new ArrayList<>();
