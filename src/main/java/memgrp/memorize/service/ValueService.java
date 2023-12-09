@@ -49,12 +49,4 @@ public class ValueService {
     }
 
 
-    public void addCardToValue(Card card, int valueId) {
-        Value value = valueRepository.findById(valueId)
-                .orElseThrow(() -> new EntityNotFoundException("Value not found"));
-
-        value.addCard(card);
-        valueRepository.save(value); // Corrected method invocation
-    }
-
 }
