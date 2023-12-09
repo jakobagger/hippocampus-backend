@@ -9,31 +9,27 @@ import memgrp.memorize.repository.SuitRepository;
 import memgrp.memorize.repository.ValueRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.Arrays;
 import java.util.List;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class CardServiceTest {
 
     @Mock
     CardRepository cardRepository;
-
     @InjectMocks
     CardService cardService;
 
-    @Mock
-    ValueRepository valueRepository;
-
-    @Mock
-    SuitRepository suitRepository;
-
     @BeforeEach
     void setup() {
-        MockitoAnnotations.openMocks(this);
         Value v1 = new Value("Ace", "Sports Athlete");
         Value v2 = new Value("Queen", "Top Celebrity");
         Suit s1 = new Suit("Hearts", "Kind");
@@ -48,6 +44,13 @@ class CardServiceTest {
     void getCards() {
         List<CardResponse> cards = cardService.getCards();
         assertEquals(2, cards.size());
-        verify(cardRepository).findAll();
+
+        CardResponse card2 = cards.get(1);
+        assertEquals("Beyonce", card2.getPerson());
+        assertEquals("Power dances on", card2.getAction());
+        assertEquals("Clubs", card2.getSuit());
+        assertEquals("image2", card2.getImage());
+
+
     }
 }
