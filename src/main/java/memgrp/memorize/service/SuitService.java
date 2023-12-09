@@ -28,7 +28,6 @@ public class SuitService {
         this.matrixRepository = matrixRepository;
     }
 
-
     public SuitResponse addSuit(SuitRequest suit){
         if(suitRepository.existsById(suit.getSuitId())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "this suit already exist");
@@ -50,5 +49,4 @@ public class SuitService {
         }
         return responses;
     }
-
 }

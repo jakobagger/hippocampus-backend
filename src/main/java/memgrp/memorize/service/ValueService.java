@@ -9,7 +9,6 @@ import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.ValueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,7 +17,6 @@ import java.util.List;
 
 @Service
 public class ValueService {
-
 
     private ValueRepository valueRepository;
     private MatrixRepository matrixRepository;
@@ -37,7 +35,6 @@ public class ValueService {
         return new ValueResponse(newValue);
     }
 
-
     public List<ValueResponse> getValue(){
         List<Value> values = valueRepository.findAll();
         List<ValueResponse> responses = new ArrayList<>();
@@ -47,6 +44,5 @@ public class ValueService {
         }
         return responses;
     }
-
 
 }

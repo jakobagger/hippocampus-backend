@@ -11,12 +11,10 @@ import memgrp.memorize.entity.Suit;
 public class SuitResponse {
 
     int suitId;
-    String suitName;
     String suitDescription;
 
     public SuitResponse(Suit suit){
         this.suitId = suit.getSuitId();
-        this.suitName = suit.getSuitName();
         this.suitDescription = suit.getSuitDescription();
     }
 }

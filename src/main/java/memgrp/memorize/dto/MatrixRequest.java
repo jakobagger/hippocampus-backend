@@ -18,6 +18,4 @@ public class MatrixRequest {
     public static Matrix getMatrixEntity(MatrixRequest matrix){
         return new Matrix(matrix.getMatrixId(), matrix.getMatrixName());
     }
-
-
 }

@@ -5,6 +5,12 @@ import memgrp.memorize.dto.MatrixRequest;
 import memgrp.memorize.dto.MatrixResponse;
 import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
+import memgrp.memorize.dto.SuitResponse;
+import memgrp.memorize.dto.ValueResponse;
+import memgrp.memorize.entity.Card;
+import memgrp.memorize.entity.Matrix;
+import memgrp.memorize.entity.Suit;
+import memgrp.memorize.entity.Value;
 import memgrp.memorize.repository.MatrixRepository;
 import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
@@ -15,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class MatrixService {
 
@@ -22,13 +29,14 @@ public class MatrixService {
     MemberRepository memberRepository;
     ValueRepository valueRepository;
     SuitRepository suitRepository;
+
     public MatrixService(MatrixRepository matrixRepository, MemberRepository memberRepository, ValueRepository valueRepository, SuitRepository suitRepository){
         this.matrixRepository = matrixRepository;
         this.memberRepository = memberRepository;
         this.valueRepository = valueRepository;
         this.suitRepository = suitRepository;
-
     }
+
     public List<MatrixResponse> getMatrix() {
         List<Matrix> matrixList = matrixRepository.findAll();
         List<MatrixResponse> responses = new ArrayList<>();

@@ -29,7 +29,8 @@ public class MatrixController {
     public MatrixResponse getDefaultMatrix() {
         return matrixService.getDefaultMatrix();
     }
-    @PostMapping
+
+    @PostMapping()
     MatrixResponse addMatrix(@RequestBody MatrixRequest body) {
         return matrixService.addMatrix(body);
     }
