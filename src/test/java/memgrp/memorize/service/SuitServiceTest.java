@@ -39,10 +39,7 @@ public class SuitServiceTest {
     @InjectMocks
     private SuitService suitService;
 
-    @BeforeEach
-    public void setUp() {
 
-    }
 
     @Test
     public void testGetSuit() {
