@@ -11,9 +11,11 @@ import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +27,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
-
+@ExtendWith(MockitoExtension.class)
 public class SuitServiceTest {
 
     @Mock
@@ -38,10 +40,21 @@ public class SuitServiceTest {
     public void setUp() {
         Suit s1 = new Suit();
         Suit s2 = new Suit();
-        Matrix m1 = new Matrix(1, "TestMatrix");
+
+        s1.setSuitName("Hearts");
+        s2.setSuitDescription("Good");
 
 
+        when(suitRepository.findAll()).thenReturn(Arrays.asList(s1,s2));
 
+    }
+    @Test
+    public void testGetSuit() {
+    List<SuitResponse> suits = suitService.getSuit();
+    assertEquals(2, suits.size());
+    assertEquals("Hearts", suits.get(0).getSuitName());
+    assertEquals("Good", suits.get(1).getSuitDescription());
+    assertEquals(0, suits.get(0).getSuitId());
     }
 
     @Test
@@ -50,10 +63,7 @@ public class SuitServiceTest {
 
     }
 
-    @Test
-    public void testGetSuit() {
 
-    }
 
 
 }
