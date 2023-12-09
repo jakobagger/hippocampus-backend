@@ -1,6 +1,8 @@
 package memgrp.memorize.service;
 
+import memgrp.memorize.dto.SuitRequest;
 import memgrp.memorize.dto.SuitResponse;
+import memgrp.memorize.entity.Card;
 import memgrp.memorize.entity.Matrix;
 import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Suit;
@@ -16,33 +18,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
 
-class SuitServiceTest {
+public class SuitServiceTest {
 
     @Mock
-    SuitRepository suitRepository;
+    private SuitRepository suitRepository;
 
     @InjectMocks
-    SuitService suitService;
-
-    @Mock
-    MatrixRepository matrixRepository;
-    @Mock
-    MemberRepository memberRepository;
+    private SuitService suitService;
 
     @BeforeEach
-    void setup() {
-        MockitoAnnotations.openMocks(this);
-        Member m1 = new Member("username", "email", "password");
-        Matrix mat1 = new Matrix(1, "Test1");
-        Suit s1 = new Suit("Hearts", "sweet");
+    public void setUp() {
+        Suit s1 = new Suit();
+        Suit s2 = new Suit();
+        Matrix m1 = new Matrix(1, "TestMatrix");
 
-        when(SuitRepository.findAll()).thenReturn(Arrays.asList(s1));
+
+
     }
+
+    @Test
+    public void testAddSuit() {
+
+
+    }
+
+    @Test
+    public void testGetSuit() {
+
+    }
+
 
 }
