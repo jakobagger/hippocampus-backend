@@ -34,20 +34,20 @@ public class SuitController {
         return suitService.getSuit();
     }
 
-//    @PostMapping()
-//    SuitResponse addSuit(@RequestBody SuitRequest body){
-//        return suitService.addSuit(body);
-//    }
     @PostMapping()
-    List<SuitResponse> addSuits(@RequestBody List<SuitRequest> body){
-        List<SuitResponse> responses = new ArrayList<>();
-        for (SuitRequest suit : body) {
-            Suit newSuit = SuitRequest.getSuitEntity(suit);
-            Matrix matrix = matrixRepository.findById(suit.getMatrixId()).orElseThrow(() -> new EntityNotFoundException("Matrix not found"));
-            newSuit.setMatrix(matrix);
-            suitRepository.save(newSuit);
-            responses.add(new SuitResponse(newSuit));
-        }
-        return responses;
+    SuitResponse addSuit(@RequestBody SuitRequest body){
+        return suitService.addSuit(body);
     }
+//    @PostMapping()
+//    List<SuitResponse> addSuits(@RequestBody List<SuitRequest> body){
+//        List<SuitResponse> responses = new ArrayList<>();
+//        for (SuitRequest suit : body) {
+//            Suit newSuit = SuitRequest.getSuitEntity(suit);
+//            Matrix matrix = matrixRepository.findById(suit.getMatrixId()).orElseThrow(() -> new EntityNotFoundException("Matrix not found"));
+//            newSuit.setMatrix(matrix);
+//            suitRepository.save(newSuit);
+//            responses.add(new SuitResponse(newSuit));
+//        }
+//        return responses;
+//    }
 }
