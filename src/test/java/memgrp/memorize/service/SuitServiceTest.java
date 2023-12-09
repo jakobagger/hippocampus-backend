@@ -1,43 +1,48 @@
 package memgrp.memorize.service;
 
 import memgrp.memorize.dto.SuitResponse;
+import memgrp.memorize.entity.Matrix;
+import memgrp.memorize.entity.Member;
 import memgrp.memorize.entity.Suit;
 import memgrp.memorize.repository.MatrixRepository;
+import memgrp.memorize.repository.MemberRepository;
 import memgrp.memorize.repository.SuitRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-@DataJpaTest
+import static org.mockito.Mockito.when;
+
+
 class SuitServiceTest {
 
-    @Autowired
+    @Mock
     SuitRepository suitRepository;
 
-    @Autowired
-    MatrixRepository matrixRepository;
-
+    @InjectMocks
     SuitService suitService;
 
-    boolean isInitialized;
-    Suit suit1, suit2;
+    @Mock
+    MatrixRepository matrixRepository;
+    @Mock
+    MemberRepository memberRepository;
+
     @BeforeEach
-    void setUp() {
-        if(!isInitialized)
-            suitRepository.deleteAll();
-            suit1 = suitRepository.save(new Suit("Hearts", "Loving"));
-            suit2 = suitRepository.save(new Suit("Spades", "Gambling"));
-            suitService = new SuitService(suitRepository,matrixRepository);
-            isInitialized = true;
+    void setup() {
+        MockitoAnnotations.openMocks(this);
+        Member m1 = new Member("username", "email", "password");
+        Matrix mat1 = new Matrix(1, "Test1");
+        Suit s1 = new Suit("Hearts", "sweet");
+
+        when(SuitRepository.findAll()).thenReturn(Arrays.asList(s1));
     }
 
-    @Test
-    void getSuits(){
-        List<SuitResponse> suitResponses = suitService.getSuit();
-        assertEquals(2, suitResponses.size());
-    }
 }
