@@ -49,13 +49,4 @@ public class SuitService {
         }
         return responses;
     }
-
-    public void addCardToSuit(Card card, int suitId) {
-        Suit suit = suitRepository.findById(suitId)
-                .orElseThrow(() -> new EntityNotFoundException("Suit not found"));
-
-        suit.addCard(card);
-        suitRepository.save(suit);
-    }
-
 }
