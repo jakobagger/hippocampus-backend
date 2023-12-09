@@ -19,7 +19,6 @@ import java.util.List;
 public class MatrixService {
 
     MatrixRepository matrixRepository;
-
     MemberRepository memberRepository;
     ValueRepository valueRepository;
     SuitRepository suitRepository;
@@ -49,11 +48,6 @@ public class MatrixService {
 
     return new MatrixResponse(newMatrix);
     }
-
-
-
-
-
 
     public void addCardToMatrix(Card card, int matrixId) {
         Matrix matrix = matrixRepository.findById(matrixId)
