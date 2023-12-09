@@ -50,7 +50,7 @@ class CardServiceTest {
         assertEquals("Power dances on", card2.getAction());
         assertEquals("Clubs", card2.getSuit());
         assertEquals("image2", card2.getImage());
-
+        verify(cardRepository).findAll();
 
     }
 }
